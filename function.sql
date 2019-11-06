@@ -1,18 +1,14 @@
-create or replace function get_sysdate return date
-is
-v_date date;
-begin
+CREATE OR REPLACE FUNCTION get_sysdate RETURN DATE IS
+    v_date   DATE;
+BEGIN
+    SELECT
+        SYSDATE
+    INTO v_date
+    FROM
+        dual;
 
-select sysdate into v_date from dual;
-
-if v_date>'1.1.2018' then
-
-v_date:=sysdate-15;
-
-end if;
-
-
-return v_date;
-
-
-end;
+    IF v_date > '1.1.2018' THEN
+        v_date := SYSDATE - 15;
+    END IF;
+    RETURN v_date;
+END;
