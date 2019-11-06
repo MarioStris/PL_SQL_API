@@ -2,12 +2,8 @@ CREATE OR REPLACE package ORACLE_API is
 
 TYPE num_obj IS TABLE OF number ;
 
---globalne varijable
-v_customerId num_obj;
-v_cust_attr num_obj;
-
 --main procedure
-procedure CONTROLLER;
+procedure CONTROLLER (v_method varchar2, v_json clob);
 
 --dohvat podataka
 procedure POST_METH;
